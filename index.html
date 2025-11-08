@@ -18,7 +18,9 @@
 />
     <!-- Font Awesome CDN -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/main.css" />
   </head>
   <body>
@@ -26,11 +28,9 @@
 <!-- Header -->
 <header class="navbar navbar-expand-lg py-3">
   <div class="container d-flex align-items-center justify-content-between">
-
     <!-- LEFT: Logo -->
     <a class="navbar-brand d-flex align-items-center" href="#">
-      <img src="assets/logo-footer.png" alt="Dreams Food" class="brand-logo" />
-      <span class="brand-name">Dreams <span class="highlight">Food</span></span>
+      <img src="assets/nav-logo.png" alt="Dreams Food" class="brand-logo" />
     </a>
 
     <!-- TOGGLER -->
@@ -39,34 +39,67 @@
       type="button"
       data-bs-toggle="collapse"
       data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
     >
-      <span class="navbar-toggler-icon"></span>
+      <i class="bi bi-list fs-1 text-success"></i>
     </button>
 
-    <!-- CENTER: Menu -->
+    <!-- CENTER MENU -->
     <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
       <ul class="navbar-nav align-items-center gap-4">
-        <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
-        <li class="nav-item"><a class="nav-link" href="#">Restaurants</a></li>
-        <li class="nav-item"><a class="nav-link" href="#">Blog</a></li>
-        <li class="nav-item"><a class="nav-link" href="#">Pages</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle active d-flex align-items-center gap-1" href="#" data-bs-toggle="dropdown">
+            Home 
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Main Home</a></li>
+            <li><a class="dropdown-item" href="#">Alternate</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle d-flex align-items-center gap-1" href="#" data-bs-toggle="dropdown">
+            Restaurants 
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Fast Food</a></li>
+            <li><a class="dropdown-item" href="#">Fine Dining</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle d-flex align-items-center gap-1" href="#" data-bs-toggle="dropdown">
+            Blog 
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Latest Posts</a></li>
+            <li><a class="dropdown-item" href="#">Tips & Recipes</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle d-flex align-items-center gap-1" href="#" data-bs-toggle="dropdown">
+            Pages 
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">About Us</a></li>
+            <li><a class="dropdown-item" href="#">Contact</a></li>
+          </ul>
+        </li>
       </ul>
     </div>
 
     <!-- RIGHT: Icons + Login -->
     <div class="navbar-actions d-flex align-items-center gap-3">
-      <!-- Dark/Light Toggle -->
-      <button class="icon-btn">
-        <i class="bi bi-moon"></i>
-      </button>
+      <button class="icon-btn"><i class="bi bi-moon"></i></button>
 
-      <!-- Cart Icon -->
       <div class="icon-btn position-relative">
         <i class="bi bi-bag"></i>
         <span class="badge bg-success rounded-circle position-absolute top-0 end-0 translate-middle p-1">2</span>
       </div>
 
-      <!-- Login Button -->
       <a href="#" class="btn btn-success login-btn d-flex align-items-center gap-2">
         <i class="bi bi-lock"></i> Login
       </a>
@@ -75,36 +108,45 @@
 </header>
 
 
-<!-- Hero Section -->
-<section class="hero-section text-center text-white">
-  <div class="container">
-   <div class="bg-white stats-badge">
-  <span class="text-black"><span class="stats-icon">10k+</span> Happy Customers</span>
-</div>
+    <!-- 🍕 Hero Section -->
+    <section class="hero-section text-center text-white">
+      <div class="container">
+        <div class="stats-badge">
+          <span class="header">
+            <span class="stats-icon">10k+</span>
+            Happy Customers
+          </span>
+        </div>
 
-    <h1 class="fw-bold display-5">
-      The Ultimate One Stop for <br />
-      <span class="highlight-text">Every Craving</span>
-    </h1>
+        <h1 class="fw-bold display-5">
+          The Ultimate One Stop for <br />
+          <span class="highlight-text">Every Craving</span>
+        </h1>
 
-    <p class="text-white-50 mt-3 mx-auto" style="max-width: 700px;">
-      From comforting classics to bold new flavors, we bring together everything you love in one place,
-      making it easier than ever to satisfy every craving without compromise.
-    </p>
+        <p class="text-white-50 mt-3 mx-auto" style="max-width: 700px;">
+          From comforting classics to bold new flavors, we bring together everything you love in one
+          place, making it easier than ever to satisfy every craving without compromise.
+        </p>
 
-    <a href="#" class="btn btn-success btn-lg mt-4 rounded-pill px-4 py-2">
-      Order Now
-    </a>
+        <a
+          href="#"
+          class="btn btn-success btn-lg mt-4 rounded-pill px-4 py-2 d-inline-flex align-items-center gap-2"
+        >
+          <i class="bi bi-bag-fill"></i> Order Now
+        </a>
 
-    <div class="food-card-container">
-      <div class="food-card"><img src="assets/home-card-1.png" alt="Pizza" /></div>
-      <div class="food-card"><img src="assets/home-card-2.png" alt="Burger" /></div>
-      <div class="food-card"><img src="assets/home-card-3.png" alt="Pasta" /></div>
-      <div class="food-card"><img src="assets/home-card-4.png" alt="Hotdog" /></div>
-      <div class="food-card"><img src="assets/home-card-5.png" alt="Pancakes" /></div>
-    </div>
-  </div>
-</section>
+        <!-- 6 Food Cards -->
+        <div class="food-card-container">
+          <div class="food-card"><img src="assets/home-card-1.png" alt="Pizza" /></div>
+          <div class="food-card"><img src="assets/home-card-2.png" alt="Burger" /></div>
+          <div class="food-card"><img src="assets/home-card-3.png" alt="Pasta" /></div>
+          <div class="food-card"><img src="assets/home-card-4.png" alt="Hotdog" /></div>
+          <div class="food-card"><img src="assets/home-card-5.png" alt="Pancakes" /></div>
+          <div class="food-card"><img src="assets/home-card.jpg" alt="Sushi" /></div>
+        </div>
+      </div>
+    </section>
+
 
 <!-- Explore Delicious Options Section -->
 <section class="food-marquee py-5">
@@ -165,7 +207,8 @@
       <div class="col-md-4">
         <div class="promo-card pasta">
           <h4>Dive Into Creamy Pasta!</h4>
-          <taste>Rich sauces, fresh herbs, & a <br />taste you’ll love.</p>
+          <p>Rich sauces, fresh herbs, & a <br />taste you’ll love.</p>
+
           <button class="order-btn"><i class="fa-solid fa-bag-shopping"></i>Order Now</button>
           <img src="assets/second-3.png" alt="Pasta" />
         </div>
