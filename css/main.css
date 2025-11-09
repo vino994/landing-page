@@ -158,6 +158,36 @@ a {
 .hero-section .highlight-text {
   color: #16a34a;
 }
+.hero-section .floating-deco {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  z-index: 5;
+  animation: float 4s ease-in-out infinite;
+}
+.hero-section .floating-deco img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.hero-section .floating-deco.deco-left {
+  top: 60px;
+  left: 80px;
+  transform: rotate(-15deg);
+}
+.hero-section .floating-deco.deco-right {
+  top: 80px;
+  right: 80px;
+  transform: rotate(15deg);
+}
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) rotate(15deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(15deg);
+  }
+}
 .hero-section .stats-badge {
   background: #fff;
   color: #16a34a;
@@ -247,6 +277,18 @@ a {
   .hero-section {
     padding: 3rem 0 7rem;
   }
+  .hero-section .floating-deco {
+    width: 30px;
+    height: 30px;
+  }
+  .hero-section .floating-deco.deco-left {
+    left: 40px;
+    top: 40px;
+  }
+  .hero-section .floating-deco.deco-right {
+    right: 40px;
+    top: 60px;
+  }
   .hero-section .food-card-container {
     margin-top: 5rem;
   }
@@ -281,6 +323,18 @@ a {
 @media (max-width: 576px) {
   .hero-section {
     padding: 2.5rem 0 6rem;
+  }
+  .hero-section .floating-deco {
+    width: 25px;
+    height: 25px;
+  }
+  .hero-section .floating-deco.deco-left {
+    left: 20px;
+    top: 20px;
+  }
+  .hero-section .floating-deco.deco-right {
+    right: 20px;
+    top: 40px;
   }
   .hero-section .food-card-container {
     margin-top: 4rem;
@@ -339,8 +393,8 @@ a {
   color: #000;
 }
 .food-marquee .section-subtitle .inline-icon {
-  width: 28px;
-  height: 28px;
+  width: 40px;
+  height: 40px;
   object-fit: contain;
 }
 .food-marquee p {
@@ -418,8 +472,8 @@ a {
     text-align: center; /* center-align text */
   }
   .food-marquee .section-subtitle .inline-icon {
-    width: 35px;
-    height: 35px;
+    width: 40px;
+    height: 40px;
   }
   .marquee-row {
     overflow: hidden;
@@ -582,8 +636,8 @@ a {
   text-align: center;
 }
 .restaurants-section .section-subtitle .inline-icon {
-  width: 32px;
-  height: 32px;
+  width: 40px;
+  height: 40px;
   object-fit: contain;
 }
 .restaurants-section p {
@@ -983,10 +1037,25 @@ a {
 
 .testimonials {
   background: #fff;
+  text-align: center;
 }
 .testimonials .section-title {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px; /* space between icon and text */
   font-weight: 700;
   font-size: 1.9rem;
+  text-align: center;
+}
+.testimonials .inline-icon {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+.testimonials p.text-muted {
+  max-width: 600px;
+  margin: 0 auto 2rem auto; /* centers and adds spacing below */
 }
 .testimonials .testimonial-card {
   position: relative;
@@ -1012,18 +1081,7 @@ a {
   position: absolute;
   top: 15px;
   right: 15px;
-  font-size: 2.5rem;
-  opacity: 0.1;
-}
-.testimonials .testimonial-card:first-child .quote-icon-green {
-  position: absolute;
-  top: 0px;
-  right: 20px;
-  transform: rotate(180deg);
-  font-size: 3rem;
-  color: #00b33c;
-  opacity: 0.8;
-  font-weight: bold;
+  font-size: 4.5rem;
 }
 .testimonials .stats-banner {
   background: #000;
@@ -1040,22 +1098,51 @@ a {
 @media (max-width: 768px) {
   .testimonials .section-title {
     font-size: 1.5rem;
+    flex-direction: column; /* stack icon on top of text */
+    gap: 5px;
+  }
+  .testimonials .inline-icon {
+    width: 40px;
+    height: 40px;
+  }
+  .testimonials p.text-muted {
+    font-size: 0.95rem;
+    padding: 0 20px;
   }
   .testimonials .testimonial-card {
     text-align: center;
   }
   .testimonials .testimonial-card .quote-icon-green {
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateX(-50%) rotate(180deg);
   }
 }
 
 .bites-blogs {
   background: #fff;
+  text-align: center;
+  /* ---------- Section Title ---------- */
 }
 .bites-blogs .section-title {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px; /* space between icon and text */
   font-weight: 700;
   font-size: 1.9rem;
+  text-align: center;
+}
+.bites-blogs .inline-icon {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+.bites-blogs p.text-muted {
+  max-width: 600px;
+  margin: 0 auto 2rem auto; /* centers paragraph and adds space below */
+}
+.bites-blogs {
+  /* ---------- Blog Cards ---------- */
 }
 .bites-blogs .blog-card {
   display: flex;
@@ -1075,7 +1162,7 @@ a {
   object-fit: cover;
 }
 .bites-blogs .blog-card .p-4 {
-  flex: 1;
+  flex: 1; /* ensures equal height for the content box */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -1090,16 +1177,29 @@ a {
   font-weight: 700;
   line-height: 1.4;
   margin-bottom: 0.5rem;
-  min-height: 48px;
+  min-height: 48px; /* ensures consistent title height */
 }
 .bites-blogs .blog-card p {
   font-size: 0.95rem;
-  margin-bottom: 0;
-  flex-grow: 1;
+  margin-bottom: 0; /* removes uneven bottom spacing */
+  flex-grow: 1; /* balances varying paragraph length */
+}
+.bites-blogs {
+  /* ---------- Responsive Styles ---------- */
 }
 @media (max-width: 768px) {
   .bites-blogs .section-title {
     font-size: 1.6rem;
+    flex-direction: column; /* stack icon on top of text */
+    gap: 5px;
+  }
+  .bites-blogs .inline-icon {
+    width: 40px;
+    height: 40px;
+  }
+  .bites-blogs p.text-muted {
+    font-size: 0.95rem;
+    padding: 0 20px;
   }
   .bites-blogs .blog-card .blog-img {
     height: 180px;
@@ -1114,12 +1214,10 @@ a {
   color: #fff;
   border-radius: 20px 20px 0 0;
   padding: 50px 0;
-  isolation: isolate;
   position: relative;
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   gap: 40px;
   /* 🍩 Floating decorative food images */
@@ -1155,7 +1253,7 @@ a {
   animation-delay: 3s;
 }
 @keyframes floaty {
-  0% {
+  0%, 100% {
     transform: translateY(0);
     opacity: 1;
   }
@@ -1163,15 +1261,9 @@ a {
     transform: translateY(-15px);
     opacity: 0.95;
   }
-  100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
 }
 .footer {
-  /* ==============================
-     📨 Newsletter Section
-  ============================== */
+  /* 📨 Newsletter Section */
 }
 .footer .newsletter {
   width: 80%;
@@ -1233,20 +1325,14 @@ a {
   background: #05951d;
 }
 .footer {
-  /* ==============================
-     🌐 Footer Main + Bottom Section
-  ============================== */
-}
-.footer .footer-main,
-.footer .footer-bottom {
-  width: 80%;
-  max-width: 1200px;
+  /* 🌐 Footer Main Section */
 }
 .footer .footer-main {
+  width: 80%;
+  max-width: 1200px;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  flex-wrap: nowrap;
   gap: 2rem;
   border-top: 1px solid #222;
   padding-top: 2rem;
@@ -1279,11 +1365,11 @@ a {
   width: 35px;
   height: 35px;
   border-radius: 50%;
-  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 1.1rem;
+  cursor: pointer;
   transition: all 0.3s ease;
 }
 .footer .footer-main .footer-about .social-icons i:hover, .footer .footer-main .footer-about .social-icons i.active {
@@ -1294,7 +1380,6 @@ a {
   display: flex;
   justify-content: space-between;
   flex: 3;
-  flex-wrap: nowrap;
   gap: 2rem;
 }
 .footer .footer-main .footer-links .link-group {
@@ -1357,40 +1442,47 @@ a {
   color: #c9c9c9;
   margin: 2px 0 0 0;
 }
+.footer {
+  /* 🏦 Footer Bottom Section */
+}
 .footer .footer-bottom {
+  width: 80%;
+  max-width: 1200px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   border-top: 1px solid #222;
   padding-top: 1.5rem;
   margin-top: 2rem;
+  text-align: left;
   flex-wrap: wrap;
-  text-align: center;
+  gap: 1rem;
 }
 .footer .footer-bottom p {
   color: #aaa;
   margin: 0;
   font-size: 14px;
+  flex: 1;
 }
 .footer .footer-bottom .payment-icons {
   display: flex;
-  gap: 0.8rem;
   align-items: center;
-}
-.footer .footer-bottom .payment-icons p {
-  color: #c9c9c9;
-  margin-right: 0.5rem;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: flex-end;
 }
 .footer .footer-bottom .payment-icons img {
   width: 50px;
+  height: auto;
+}
+.footer .footer-bottom .payment-icons p {
+  color: #aaa;
+  font-size: 14px;
+  margin-right: 0.5rem;
+  flex: none;
 }
 .footer {
-  /* ==============================
-     📱 Responsive Design
-  ============================== */
-  /* ==============================
-     📱 Responsive Design
-  ============================== */
+  /* 📱 Mobile Responsive */
 }
 @media (max-width: 992px) {
   .footer .newsletter {
@@ -1409,8 +1501,7 @@ a {
     flex-direction: column;
     gap: 1rem;
   }
-  .footer .newsletter .newsletter-box input,
-  .footer .newsletter .newsletter-box button {
+  .footer .newsletter .newsletter-box input, .footer .newsletter .newsletter-box button {
     width: 100%;
   }
   .footer .footer-main {
@@ -1435,28 +1526,44 @@ a {
     text-align: center;
     gap: 2rem;
   }
-  .footer .footer-main .footer-links .link-group h4 {
-    text-align: center;
-  }
-  .footer .footer-main .footer-links .link-group ul li {
-    text-align: center;
-  }
-  .footer .footer-main .footer-links .contact-section {
-    align-items: center;
+  .footer .footer-main .footer-links .link-group h4, .footer .footer-main .footer-links .link-group ul li {
     text-align: center;
   }
   .footer .footer-main .footer-links .contact-section .contact-item {
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
+    text-align: center;
+    gap: 0.5rem;
+  }
+  .footer {
+    /* ✅ Updated Footer Bottom Mobile Layout */
   }
   .footer .footer-bottom {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    gap: 1rem;
   }
   .footer .footer-bottom .payment-icons {
-    justify-content: center;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.8rem;
+    justify-items: center;
+    width: 100%;
+  }
+  .footer .footer-bottom .payment-icons img {
+    width: 60px;
+  }
+  .footer .footer-bottom .payment-icons p {
+    grid-column: span 2;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+  .footer .footer-bottom p {
+    order: 2;
+    margin-top: 1rem;
+    color: #aaa;
+    font-size: 13px;
   }
 }
 
